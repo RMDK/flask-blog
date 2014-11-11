@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>e-list</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+	<div class='container'>
+		{% for message in get_flashed_messages() %}
+			<div class='flash'>{{ message }}</div>
+		{% endfor %}
+		{% if error %}
+			<p class='error'><strong>Error:</strong> {{ error }}</p>
+		{% endif %}
+		<!-- inheritance -->
+		{% block content %}
+		{% endblock %}
+		<!-- end inheritance -->
+</body>
+</html>
